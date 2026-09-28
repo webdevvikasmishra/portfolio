@@ -13,7 +13,7 @@ window.PORTFOLIO_DATA = {
     "tagline": "I build secure, scalable enterprise web applications for large telecom platforms like AT&T and Cricket Wireless.",
     "location": "Delhi, India",
     "phone": "+91-9598508060",
-    "email": "mvikas324@gmail.com",
+    "email": "devvikasmishra@gmail.com",
     "linkedin": "https://www.linkedin.com/in/vikasbits",
     "resumeUrl": "",
     "available": true,
@@ -151,7 +151,7 @@ window.PORTFOLIO_DATA = {
       "role": "Software Engineer",
       "company": "Plasma Softtech Pvt. Ltd.",
       "period": "June 2023 – Present",
-      "location": "Delhi, India",
+      "location": "Noida, India",
       "highlights": [
         "Design, develop, and maintain enterprise-scale web applications using ASP.NET Core, C#, Angular, and SQL Server for large telecom clients in production environments.",
         "Deliver 40+ Change Requests (CRs) and feature enhancements per release cycle, consistently meeting sprint deadlines.",

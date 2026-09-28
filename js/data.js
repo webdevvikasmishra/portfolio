@@ -49,7 +49,7 @@ window.PORTFOLIO_DATA = {
         "C#",
         "TypeScript",
         "JavaScript",
-        "SQL"
+        "Python"
       ]
     },
     {
@@ -92,18 +92,18 @@ window.PORTFOLIO_DATA = {
         "OOP"
       ]
     },
-    {
-      "category": "Databases",
-      "icon": "database",
-      "items": [
-        "SQL Server",
-        "MySQL",
-        "Oracle",
-        "Stored Procedures",
-        "Indexing",
-        "Query Optimization"
-      ]
-    },
+  {
+  "category": "Databases",
+  "icon": "database",
+  "items": [
+    "SQL Server",
+    "MySQL",
+    "Oracle",
+    "Stored Procedures",
+    "Indexing",
+    "Query Optimization"
+  ]
+},
     {
       "category": "API & Security",
       "icon": "shield",

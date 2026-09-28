@@ -16,6 +16,7 @@ window.PORTFOLIO_DATA = {
     "email": "devvikasmishra@gmail.com",
     "linkedin": "https://www.linkedin.com/in/vikasbits",
     "resumeUrl": "",
+    "photo": "images/profile.jpg",
     "available": true,
     "summary": "Full Stack .NET Developer with 3+ years of experience building and maintaining enterprise-scale web applications for large telecom platforms, including AT&T and Cricket Wireless. Strong expertise in ASP.NET Core, ASP.NET Web API, C#, Angular, TypeScript, and SQL Server. Experienced in designing secure, scalable RESTful APIs using Clean Architecture, SOLID principles, and Dependency Injection, and in tuning SQL Server queries and stored procedures for high-volume transactional systems. Consistently delivers 40 to 50+ Change Requests per release cycle in Agile Scrum teams, with a focus on code quality through code reviews, SonarQube static analysis, and unit testing."
   },

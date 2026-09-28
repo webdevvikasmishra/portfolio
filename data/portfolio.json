@@ -3,32 +3,148 @@
     "name": "Vikas Kumar Mishra",
     "shortName": "Vikas",
     "title": "Full Stack .NET Developer",
-    "roles": ["Full Stack .NET Developer", "ASP.NET Core Engineer", "Angular Developer", "SQL Server Optimizer"],
+    "roles": [
+      "Full Stack .NET Developer",
+      "ASP.NET Core Engineer",
+      "Angular Developer",
+      "SQL Server Optimizer"
+    ],
     "tagline": "I build secure, scalable enterprise web applications for large telecom platforms like AT&T and Cricket Wireless.",
     "location": "Delhi, India",
     "phone": "+91-9598508060",
     "email": "devvikasmishra@gmail.com",
     "linkedin": "https://www.linkedin.com/in/vikasbits",
     "resumeUrl": "",
+    "photo": "images/profile.jpg",
     "available": true,
     "summary": "Full Stack .NET Developer with 3+ years of experience building and maintaining enterprise-scale web applications for large telecom platforms, including AT&T and Cricket Wireless. Strong expertise in ASP.NET Core, ASP.NET Web API, C#, Angular, TypeScript, and SQL Server. Experienced in designing secure, scalable RESTful APIs using Clean Architecture, SOLID principles, and Dependency Injection, and in tuning SQL Server queries and stored procedures for high-volume transactional systems. Consistently delivers 40 to 50+ Change Requests per release cycle in Agile Scrum teams, with a focus on code quality through code reviews, SonarQube static analysis, and unit testing."
   },
   "stats": [
-    { "value": 3, "suffix": "+", "label": "Years Experience" },
-    { "value": 100, "suffix": "+", "label": "Change Requests Delivered" },
-    { "value": 60, "suffix": "K+", "label": "Subscribers Served" },
-    { "value": 2, "suffix": "", "label": "Enterprise Telecom Platforms" }
+    {
+      "value": 3,
+      "suffix": "+",
+      "label": "Years Experience"
+    },
+    {
+      "value": 100,
+      "suffix": "+",
+      "label": "Change Requests Delivered"
+    },
+    {
+      "value": 60,
+      "suffix": "K+",
+      "label": "Subscribers Served"
+    },
+    {
+      "value": 2,
+      "suffix": "",
+      "label": "Enterprise Telecom Platforms"
+    }
   ],
   "skills": [
-    { "category": "Languages", "icon": "code", "items": ["C#", "TypeScript", "JavaScript", "SQL"] },
-    { "category": "Backend", "icon": "server", "items": ["ASP.NET Core", "ASP.NET Core Web API", "ASP.NET MVC", "ASP.NET Web Forms", "Entity Framework", "ADO.NET", "LINQ"] },
-    { "category": "Frontend", "icon": "layout", "items": ["Angular", "Angular Material", "AJAX", "jQuery", "HTML5", "CSS3", "Bootstrap"] },
-    { "category": "Architecture & Design", "icon": "layers", "items": ["Clean Architecture", "Microservices", "RESTful API Design", "N-Tier Architecture", "SOLID Principles", "Dependency Injection", "Design Patterns", "OOP"] },
-    { "category": "Databases", "icon": "database", "items": ["SQL Server", "MySQL", "Oracle", "Stored Procedures", "Indexing", "Query Optimization"] },
-    { "category": "API & Security", "icon": "shield", "items": ["JWT Authentication", "Swagger / OpenAPI", "Third-Party API Integration"] },
-    { "category": "Cloud & DevOps", "icon": "cloud", "items": ["Microsoft Azure", "IIS", "CI/CD Pipelines", "Git", "SourceTree"] },
-    { "category": "Testing & Quality", "icon": "check", "items": ["Unit Testing", "Postman", "SonarQube", "Code Review", "Debugging", "Root-Cause Analysis"] },
-    { "category": "Methodologies", "icon": "refresh", "items": ["Agile", "Scrum", "SDLC"] }
+    {
+      "category": "Languages",
+      "icon": "code",
+      "items": [
+        "C#",
+        "TypeScript",
+        "JavaScript",
+        "Python"
+      ]
+    },
+    {
+      "category": "Backend",
+      "icon": "server",
+      "items": [
+        "ASP.NET Core",
+        "ASP.NET Core Web API",
+        "ASP.NET MVC",
+        "ASP.NET Web Forms",
+        "Entity Framework",
+        "ADO.NET",
+        "LINQ"
+      ]
+    },
+    {
+      "category": "Frontend",
+      "icon": "layout",
+      "items": [
+        "Angular",
+        "Angular Material",
+        "AJAX",
+        "jQuery",
+        "HTML5",
+        "CSS3",
+        "Bootstrap"
+      ]
+    },
+    {
+      "category": "Architecture & Design",
+      "icon": "layers",
+      "items": [
+        "Clean Architecture",
+        "Microservices",
+        "RESTful API Design",
+        "N-Tier Architecture",
+        "SOLID Principles",
+        "Dependency Injection",
+        "Design Patterns",
+        "OOP"
+      ]
+    },
+    {
+      "category": "Databases",
+      "icon": "database",
+      "items": [
+        "SQL Server",
+        "MySQL",
+        "Oracle",
+        "Stored Procedures",
+        "Indexing",
+        "Query Optimization"
+      ]
+    },
+    {
+      "category": "API & Security",
+      "icon": "shield",
+      "items": [
+        "JWT Authentication",
+        "Swagger / OpenAPI",
+        "Third-Party API Integration"
+      ]
+    },
+    {
+      "category": "Cloud & DevOps",
+      "icon": "cloud",
+      "items": [
+        "Microsoft Azure",
+        "IIS",
+        "CI/CD Pipelines",
+        "Git",
+        "SourceTree"
+      ]
+    },
+    {
+      "category": "Testing & Quality",
+      "icon": "check",
+      "items": [
+        "Unit Testing",
+        "Postman",
+        "SonarQube",
+        "Code Review",
+        "Debugging",
+        "Root-Cause Analysis"
+      ]
+    },
+    {
+      "category": "Methodologies",
+      "icon": "refresh",
+      "items": [
+        "Agile",
+        "Scrum",
+        "SDLC"
+      ]
+    }
   ],
   "experience": [
     {
@@ -53,7 +169,14 @@
       "name": "PAOS – AT&T",
       "subtitle": "Telecom Enterprise Platform",
       "description": "Large-scale telecom platform supporting order processing, provisioning, and account management workflows for AT&T, serving 60K+ subscribers.",
-      "tech": ["ASP.NET Core", "Angular", "SQL Server", "Entity Framework", "ADO.NET", "IIS"],
+      "tech": [
+        "ASP.NET Core",
+        "Angular",
+        "SQL Server",
+        "Entity Framework",
+        "ADO.NET",
+        "IIS"
+      ],
       "metric": "50+ CRs · 60K+ subscribers",
       "url": "",
       "highlights": [
@@ -71,7 +194,13 @@
       "name": "Cricket Wireless",
       "subtitle": "Telecom Product Suite",
       "description": "Prepaid telecom product suite with customer-facing self-service and account management applications requiring continuous feature development and third-party integrations.",
-      "tech": ["ASP.NET Core", "Angular", "Angular Material", "SQL Server", "REST APIs"],
+      "tech": [
+        "ASP.NET Core",
+        "Angular",
+        "Angular Material",
+        "SQL Server",
+        "REST APIs"
+      ],
       "metric": "50+ CRs · Third-party integrations",
       "url": "",
       "highlights": [
@@ -86,14 +215,45 @@
     }
   ],
   "achievements": [
-    { "title": "Consistent Delivery", "text": "Delivered 40 to 50+ Change Requests per release cycle across two enterprise telecom platforms while maintaining high code quality." },
-    { "title": "Fewer Defects", "text": "Reduced critical and blocker-level defects before release through disciplined code reviews, SonarQube analysis, and unit testing." },
-    { "title": "Better Architecture", "text": "Introduced Clean Architecture and SOLID design practices across project modules, improving testability and reducing onboarding time." },
-    { "title": "Stakeholder Trust", "text": "Recognized by cross-functional stakeholders for reliable, on-time delivery in fast-paced Agile Scrum release cycles." }
+    {
+      "title": "Consistent Delivery",
+      "text": "Delivered 40 to 50+ Change Requests per release cycle across two enterprise telecom platforms while maintaining high code quality."
+    },
+    {
+      "title": "Fewer Defects",
+      "text": "Reduced critical and blocker-level defects before release through disciplined code reviews, SonarQube analysis, and unit testing."
+    },
+    {
+      "title": "Better Architecture",
+      "text": "Introduced Clean Architecture and SOLID design practices across project modules, improving testability and reducing onboarding time."
+    },
+    {
+      "title": "Stakeholder Trust",
+      "text": "Recognized by cross-functional stakeholders for reliable, on-time delivery in fast-paced Agile Scrum release cycles."
+    }
   ],
   "education": [
-    { "degree": "B.Tech, Computer Science & Engineering", "institution": "Nitra Technical Campus, Ghaziabad", "period": "" },
-    { "degree": "Diploma, Computer Science & Engineering", "institution": "Government Polytechnic, Saharanpur", "period": "" }
+    {
+      "degree": "B.Tech, Computer Science & Engineering",
+      "institution": "Nitra Technical Campus, Ghaziabad",
+      "period": ""
+    },
+    {
+      "degree": "Diploma, Computer Science & Engineering",
+      "institution": "Government Polytechnic, Saharanpur",
+      "period": ""
+    }
   ],
-  "softSkills": ["Stakeholder Communication", "Problem-Solving", "Team Mentoring", "Time Management", "Adaptability", "Attention to Detail"],
+  "softSkills": [
+    "Stakeholder Communication",
+    "Problem-Solving",
+    "Team Mentoring",
+    "Time Management",
+    "Adaptability",
+    "Attention to Detail"
+  ],
+  "interests": [
+    "Chess",
+    "Cricket"
+  ]
 }

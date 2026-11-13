@@ -40,6 +40,25 @@
     return res;
   }
 
+  // Defensive: guarantees the local fallback always has the shape the app expects,
+  // even if data.js is stale, partially edited, or misconfigured. Prevents the
+  // "site shows old content" bug caused by a snapshot/override elsewhere.
+  function normaliseLocal(local) {
+    if (!local || typeof local !== "object") return null;
+    return {
+      profile:    local.profile    || {},
+      stats:      Array.isArray(local.stats)      ? local.stats      : [],
+      skills:     Array.isArray(local.skills)     ? local.skills     : [],
+      experience: Array.isArray(local.experience) ? local.experience : [],
+      projects:   Array.isArray(local.projects)   ? local.projects   : [],
+      achievements: Array.isArray(local.achievements) ? local.achievements : [],
+      education:  Array.isArray(local.education)  ? local.education  : [],
+      softSkills: Array.isArray(local.softSkills) ? local.softSkills : [],
+      // Interests: keep as-is (may be []); if null/undefined, treat as empty
+      interests:  Array.isArray(local.interests)  ? local.interests  : []
+    };
+  }
+
   w.PortfolioApi = {
     hasApi: function () { return useApi; },
     baseUrl: function () { return base || w.location.origin; },
@@ -47,15 +66,19 @@
     /** Returns a jQuery promise resolving to { data, source: "api" | "local" } */
     getPortfolio: function () {
       var d = $.Deferred();
-      var local = w.PORTFOLIO_DATA;
+      var local = normaliseLocal(w.PORTFOLIO_DATA);
 
-      if (!useApi) { d.resolve({ data: local, source: "local" }); return d.promise(); }
+      if (!useApi) {
+        if (local) d.resolve({ data: local, source: "local" });
+        else d.reject("No portfolio data available (data.js missing or malformed).");
+        return d.promise();
+      }
 
       request("GET", cfg.PORTFOLIO_ENDPOINT || "/api/portfolio")
         .done(function (res) {
           var data = unwrap(res);
           if (data && data.profile) d.resolve({ data: data, source: "api" });
-          else if (cfg.FALLBACK_TO_LOCAL_DATA) d.resolve({ data: local, source: "local", error: "Invalid API response" });
+          else if (cfg.FALLBACK_TO_LOCAL_DATA && local) d.resolve({ data: local, source: "local", error: "Invalid API response" });
           else d.reject("Invalid API response");
         })
         .fail(function (xhr, status) {

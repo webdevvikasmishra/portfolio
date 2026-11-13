@@ -94,9 +94,10 @@
 
   function renderSoft(data) {
     $("#softSkills").html(chips(data.softSkills));
-    var emoji = { chess: "♟️", cricket: "🏏" };
-    $("#interests").html(data.interests && data.interests.length
-      ? "<b>Interests:</b>" + $.map(data.interests, function (i) { return "<span>" + (emoji[String(i).toLowerCase()] || "•") + " " + esc(i) + "</span>"; }).join("")
+    // Interests: only render if non-empty (Chess/Cricket removed → no block shown)
+    var interests = Array.isArray(data.interests) ? data.interests.filter(Boolean) : [];
+    $("#interests").html(interests.length
+      ? "<b>Interests:</b>" + $.map(interests, function (i) { return "<span>• " + esc(i) + "</span>"; }).join("")
       : "");
   }
 
@@ -117,21 +118,43 @@
     var half = Math.ceil(items.length / 2);
     function row(list, cls) {
       var html = $.map(list, function (t) { return '<span class="mq-item">' + esc(t) + "</span>"; }).join("");
-      return '<div class="mq-row ' + cls + '">' + html + html + "</div>"; // doubled for a seamless -50% loop
+      return '<div class="mq-row ' + cls + '">' + html + html + "</div>"; // doubled for seamless -50% loop
     }
     $("#marquee").html(row(items.slice(0, half), "") + row(items.slice(half).concat(items.slice(0, 3)), "rev"));
   }
 
   function renderExperience(exp) {
-    $("#timeline").html($.map(exp || [], function (e) {
+    exp = exp || [];
+    $("#timeline").html($.map(exp, function (e) {
       return '<article class="tl-item spot reveal"><div class="tl-top"><div><h3>' + esc(e.role) + '</h3><span class="company">' + esc(e.company) + "</span>" +
         (e.location ? ' <span class="muted small">· ' + esc(e.location) + "</span>" : "") + '</div><span class="period">' + esc(e.period) + '</span></div><ul class="bullets">' +
         $.map(e.highlights || [], function (h, i) { return '<li style="--i:' + i + '">' + esc(h) + "</li>"; }).join("") + "</ul></article>";
     }).join(""));
+    // Optional: update the years badge on the portrait if present
+    var $yrs = $(".p-tag.t2 b");
+    if ($yrs.length && exp.length) {
+      var years = estimateYears(exp);
+      if (years) $yrs.text(years + "+");
+    }
+  }
+
+  // Rough years estimate from period strings (e.g. "June 2023 – Present")
+  function estimateYears(exp) {
+    var earliest = null, now = new Date();
+    $.each(exp, function (_, e) {
+      var m = /([A-Za-z]+)\s+(\d{4})/.exec(e.period || "");
+      if (m) {
+        var d0 = new Date(Date.parse(m[1] + " 1, " + m[2]));
+        if (!isNaN(d0) && (!earliest || d0 < earliest)) earliest = d0;
+      }
+    });
+    if (!earliest) return null;
+    return Math.max(1, Math.floor((now - earliest) / (1000 * 60 * 60 * 24 * 365.25)));
   }
 
   function renderProjects(projects) {
-    $("#projectsGrid").html($.map(projects || [], function (p, i) {
+    projects = projects || [];
+    $("#projectsGrid").html($.map(projects, function (p, i) {
       return '<article class="project tilt spot reveal"><span class="p-num" aria-hidden="true">' + pad(i + 1) + '</span>' +
         '<div class="p-head"><div><small>' + esc(p.subtitle) + "</small><h3>" + esc(p.name) + '</h3></div><span class="p-icon">' + icon("signal") + "</span></div>" +
         (p.metric ? '<span class="metric">▲ ' + esc(p.metric) + "</span>" : "") +
@@ -518,7 +541,8 @@
       var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
       function apply() {
         root.setAttribute("data-theme", next);
-        $('meta[name="theme-color"]').attr("content", next === "dark" ? "#0b0f1a" : "#f7f8fc");
+        // Match the refined theme colors from style.css
+        $('meta[name="theme-color"]').attr("content", next === "dark" ? "#080b14" : "#f6f8fd");
         try { localStorage.setItem("theme", next); } catch (e) {}
         heroFx.recolor();
       }

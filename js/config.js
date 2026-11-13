@@ -1,19 +1,14 @@
-/* ============================================================
-   PORTFOLIO CONFIG — the only file you need to edit.
-   ------------------------------------------------------------
-   API_BASE_URL:
-     ""                          -> uses built-in data (js/data.js), no API needed
-     "https://localhost:7001"    -> calls your ASP.NET Core API
-     "/"                         -> same origin (site copied into the API's wwwroot)
-   Endpoints expected (see README.md):
-     GET  {API_BASE_URL}/api/portfolio   -> full portfolio JSON
-     POST {API_BASE_URL}/api/contact     -> { name, email, subject, message }
-   ============================================================ */
-window.PORTFOLIO_CONFIG = {
-  API_BASE_URL: "",
-  PORTFOLIO_ENDPOINT: "/api/portfolio",
-  CONTACT_ENDPOINT: "/api/contact",
-  REQUEST_TIMEOUT_MS: 8000,
-  // If the API is down, fall back to js/data.js so the site never breaks
-  FALLBACK_TO_LOCAL_DATA: true
-};
+// 1. What does the browser actually have loaded?
+console.log('years =', window.PORTFOLIO_DATA?.stats?.[0]?.value);
+console.log('experience =', window.PORTFOLIO_DATA?.experience?.length);
+console.log('projects =', window.PORTFOLIO_DATA?.projects?.length);
+console.log('interests =', window.PORTFOLIO_DATA?.interests);
+
+// 2. What does the server actually serve for data.js?
+fetch('js/data.js?cachebust=' + Date.now())
+  .then(r => r.text())
+  .then(t => {
+    console.log('data.js has 4+ years:', t.includes('4+ years'));
+    console.log('data.js has Library project:', t.includes('Library Management'));
+    console.log('data.js has empty interests:', t.includes('"interests": []'));
+  });
